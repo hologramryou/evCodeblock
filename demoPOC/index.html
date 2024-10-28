@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockly Example</title>
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>Blockly Example</h1>
+    
+    <!-- Blockly workspace -->
+    <div id="blocklyDiv"></div>
+    
+    <!-- Buttons for generating code and adding custom blocks -->
+    <div class="buttons">
+        <button onclick="generateCode()">Generate Code</button>
+        <button onclick="compileCode()">Compile and Run</button>
+        <button onclick="addCustomBlock()">Add Custom Block</button>
+        <button onclick="addCustomCategory()">Add Custom Category</button>
+    </div>
+
+    <!-- Area to display generated code -->
+    <pre id="generatedCode"></pre>
+
+    <!-- Link to external JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
