@@ -1,0 +1,42 @@
+Các ký tự sử dụng trong tài liệu:
+n: số nhập từ bàn phím
+
+Chuyển động:
+		Di chuyển (n) bước: di chuyển đối tượng đến một vị trí theo số bước được điền trong ô trống
+		Xoay (icon phải) (n) độ: xoay đối tượng theo một góc về phía bên phải được điền trong ô trống
+		Xoay (icon trái) (n) độ: xoay đối tượng theo một góc về phía bên trái được điền trong ô trống
+		
+
+		đi tới vị trí (dropdown: + ngẫu nhiên : di chuyển đối tượng đến vị trí ngẫu nhiên
+					 + con trỏ chuột : di chuyển đối tượng đến vị trí của con trỏ chuột
+					#comment : Cái này cảm giác không cần thiết lắm
+		đi tới điểm x:(n) y:(n) : di chuyển đối tượng đến một điểm x, y nhập từ bàn phím
+		lướt trong (n) giây tới (dropdown: + ngẫu nhiên: di chuyển đối tượng đến vị trí ngẫu nhiên
+						   + con trỏ chuột : di chuyển đối tượng đến vị trí con trỏ chuột
+		
+		lướt trong (n) giây tới điểm x:(n) y:(n) : di chuyển đối tượng đến điểm x y nhập từ bàn phím
+		
+
+
+		đặt hướng bằng (n)(độ): đặt trước hướng để di chuyển ở một góc được điền trong ô trống
+		hướng về phía đối tượng (dropdown): đặt hướng để di chuyển hướng về phía
+		
+
+		thay đổi x một lượng (n): di chuyển đối tượng hiện tại theo chiều x một khoảng được điền trong ô trống
+		#comment: chỗ này dịch sai, phải là di chuyển theo chiều x một khoảng
+		đặt x bằng (n): đặt vật thể tại điểm x nhập từ bàn phím
+		thay đổi y một lượng (n): di chuyển đối tượng hiện tại theo chiều y một khoảng được điền trong ô trống
+		đặt y bằng (n): đặt vật thể tại điểm y nhập từ bàn phím
+		bật lại nếu chạm cạnh: nếu chạm viền màn hình sẽ bật lại (kiểu giống icon dvd hồi xưa ý)
+		
+		đặt kiểu xoay (dropdown: +trái-phải: quay đối tượng sang trái hoặc phải.
+					 +không xoay: không xoay đi đâu cả ???
+					 +xung quanh: quay đối tượng theo góc chỉ định
+
+		
+		#comment: mục dưới đây được dùng như một biến, ngoài ra còn có checkbox ở bên để hiện vị trí của vật thể
+			  các biến đó
+		
+		+(checkbox) tọa độ x
+		+(checkbox) tọa độ y
+		+(checkbox) hướng
