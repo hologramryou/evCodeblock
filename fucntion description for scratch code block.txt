@@ -55,4 +55,21 @@ Hiển thị:
 		Đổi kích thước một lượng (n): Biến đổi kích thước đối tượng theo số nhập từ bàn phím
 		#comment: scale theo hệ số n
 		Đặt kích thước thành (n)%: zoom đối tượng theo tỉ lệ %
-		Thay đổi hiệu ứng (dropdown) 
+		Thay đổi hiệu ứng (dropdown) một lượng (n): thay đổi hiệu ứng hiển thị của đối tượng hệ số n
+		Đặt hiệu ứng (dropdown) bằng (n): đặt hiệu ứng chỉ định điều chỉnh theo hệ số n
+		Bỏ các hiệu ứng đồ họa: loại bỏ các hiệu ứng đồ họa đang áp dụng trên đối tượng
+		Hiện: hiển thị hiệu ứng
+		Ẩn: bỏ hiện thị
+		Đi tới lớp phía (dropdown)+ trên cùng: trỏ trực tiếp vào lớp hiệu ứng trên cùng
+					  + sau	     : trỏ trực tiếp vào lớp hiệu ứng dưới cùng
+		đi (dropdown) +tới (n) lớp : tiến tới một số lớp hiệu ứng
+			      +lùi	   : quay lại một số lớp hiệu ứng
+
+		#comment: mục dưới đây được dùng như một biến, ngoài ra còn có checkbox ở bên để hiện  của vật thể
+		+ trang phục (dropdown) (số thứ tự các trang phục trên vật thể)
+		+ phông nền (dropdown) (số thứ tự các phông nền)
+		+ kích thước
+
+Âm thanh:
+Phát âm thanh (dropdown)(danh sách các tệp âm thanh được gắn trong vật thể) đến hết: Cho vật thể phát âm thanh được chọn
+Bắt đầu âm thanh 
