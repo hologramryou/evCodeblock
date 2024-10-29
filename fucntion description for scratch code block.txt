@@ -1,5 +1,8 @@
 Các ký tự sử dụng trong tài liệu:
+#comment: các ký tự ở dưới hầu hết là các biến được nhập từ bàn phím
 n: số nhập từ bàn phím
+text: một chuỗi nhập từ bàn phím
+
 
 Chuyển động:
 		Di chuyển (n) bước: di chuyển đối tượng đến một vị trí theo số bước được điền trong ô trống
@@ -40,3 +43,16 @@ Chuyển động:
 		+(checkbox) tọa độ x
 		+(checkbox) tọa độ y
 		+(checkbox) hướng
+
+Hiển thị:
+		Nói (text) trong (n) giây: đối tượng hiển thị đoạn văn bản trong bong bóng dưới dạng lời nói sau một khoảng thời gian nhập trước.
+		Nói (text): đối tượng hiển thị đoạn văn bản
+		Nghĩ (text) trong (n) giây
+		Nghĩ (text)
+		#comment: bản chất 2 cái trên không khác gì cái "Nói", kiểu nó chỉ biểu thị nghĩ thôi mà 
+		chuyển sang trang phục (dropdown)(....tên trang phục hiển thị.....): chuyển trang phục của đối tượng hiện tại thành trang phục chỉ định
+		Trang phục kế tiếp: đổi trang phục của đối tượng thành trang phục tiếp theo trong danh sách
+		Đổi kích thước một lượng (n): Biến đổi kích thước đối tượng theo số nhập từ bàn phím
+		#comment: scale theo hệ số n
+		Đặt kích thước thành (n)%: zoom đối tượng theo tỉ lệ %
+		Thay đổi hiệu ứng (dropdown) 
