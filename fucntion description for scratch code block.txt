@@ -60,7 +60,7 @@ Hiển thị:
 		Bỏ các hiệu ứng đồ họa: loại bỏ các hiệu ứng đồ họa đang áp dụng trên đối tượng
 		Hiện: hiển thị hiệu ứng
 		Ẩn: bỏ hiện thị
-		Đi tới lớp phía (dropdown)+ trên cùng: trỏ trực tiếp vào lớp hiệu ứng trên cùng
+		Đi tới lớp phía (dropdown)+ trên cùng: trỏ trực tiếp vào lớp Thay hiệu ứng trên cùng
 					  + sau	     : trỏ trực tiếp vào lớp hiệu ứng dưới cùng
 		đi (dropdown) +tới (n) lớp : tiến tới một số lớp hiệu ứng
 			      +lùi	   : quay lại một số lớp hiệu ứng
@@ -71,5 +71,18 @@ Hiển thị:
 		+ kích thước
 
 Âm thanh:
-Phát âm thanh (dropdown)(danh sách các tệp âm thanh được gắn trong vật thể) đến hết: Cho vật thể phát âm thanh được chọn
-Bắt đầu âm thanh 
+Phát âm thanh (dropdown)(danh sách các tệp âm thanh được gắn trong vật thể) đến hết: Cho vật thể phát âm thanh được chọn đến khi hết tệp âm thanh đó
+Bắt đầu âm thanh (dropdown): bắt đầu phát tệp âm thanh
+Ngừng mọi âm thanh: dừng phát tất cả các tệp âm thanh
+Thay đổi hiệu ứng (dropdown) + cao độ	     một lượng (n): thay đội hiệu ứng âm thanh theo biến số n
+			     + pan trái/phải 		  : điều trỉnh độ to nhỏ trong âm lượng của 2 bên loa
+Đặt hiệu ứng (dropdown) + cao độ bằng (n): đặt độ to của hiệu ứng cao độ bằng một lượng n
+			+ pan trái/phải: đặt tộ to của hiệu ứng âm thanh trái phải bằng một lượng n
+Xóa hiệu ứng âm thanh: xóa tất cả hiệu ứng âm thanh hiện tại.
+Thay đổi âm lượng một lượng: thay đổi thông số âm lượng bằng với giá trị n nhập từ bàn phím.
+Đặt âm lượng (n)% : đặt âm lượng tổng thể ở mức n%
+*biến: âm lượng
+
+
+Sự kiện: 
+#comment: các khối dưới đây đều là khối dạng mở đầu,thường được đặt ở đầu khối chương trình.
