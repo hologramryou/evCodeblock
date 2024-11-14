@@ -1,0 +1,88 @@
+Các ký tự sử dụng trong tài liệu:
+#comment: các ký tự ở dưới hầu hết là các biến được nhập từ bàn phím
+n: số nhập từ bàn phím
+text: một chuỗi nhập từ bàn phím
+
+
+Chuyển động:
+		Di chuyển (n) bước: di chuyển đối tượng đến một vị trí theo số bước được điền trong ô trống
+		Xoay (icon phải) (n) độ: xoay đối tượng theo một góc về phía bên phải được điền trong ô trống
+		Xoay (icon trái) (n) độ: xoay đối tượng theo một góc về phía bên trái được điền trong ô trống
+		
+
+		đi tới vị trí (dropdown: + ngẫu nhiên : di chuyển đối tượng đến vị trí ngẫu nhiên
+					 + con trỏ chuột : di chuyển đối tượng đến vị trí của con trỏ chuột
+					#comment : Cái này cảm giác không cần thiết lắm
+		đi tới điểm x:(n) y:(n) : di chuyển đối tượng đến một điểm x, y nhập từ bàn phím
+		lướt trong (n) giây tới (dropdown: + ngẫu nhiên: di chuyển đối tượng đến vị trí ngẫu nhiên
+						   + con trỏ chuột : di chuyển đối tượng đến vị trí con trỏ chuột
+		
+		lướt trong (n) giây tới điểm x:(n) y:(n) : di chuyển đối tượng đến điểm x y nhập từ bàn phím
+		
+
+
+		đặt hướng bằng (n)(độ): đặt trước hướng để di chuyển ở một góc được điền trong ô trống
+		hướng về phía đối tượng (dropdown): đặt hướng để di chuyển hướng về phía
+		
+
+		thay đổi x một lượng (n): di chuyển đối tượng hiện tại theo chiều x một khoảng được điền trong ô trống
+		#comment: chỗ này dịch sai, phải là di chuyển theo chiều x một khoảng
+		đặt x bằng (n): đặt vật thể tại điểm x nhập từ bàn phím
+		thay đổi y một lượng (n): di chuyển đối tượng hiện tại theo chiều y một khoảng được điền trong ô trống
+		đặt y bằng (n): đặt vật thể tại điểm y nhập từ bàn phím
+		bật lại nếu chạm cạnh: nếu chạm viền màn hình sẽ bật lại (kiểu giống icon dvd hồi xưa ý)
+		
+		đặt kiểu xoay (dropdown: +trái-phải: quay đối tượng sang trái hoặc phải.
+					 +không xoay: không xoay đi đâu cả ???
+					 +xung quanh: quay đối tượng theo góc chỉ định
+
+		
+		#comment: mục dưới đây được dùng như một biến, ngoài ra còn có checkbox ở bên để hiện vị trí của vật thể
+			  các biến đó
+		
+		+(checkbox) tọa độ x
+		+(checkbox) tọa độ y
+		+(checkbox) hướng
+
+Hiển thị:
+		Nói (text) trong (n) giây: đối tượng hiển thị đoạn văn bản trong bong bóng dưới dạng lời nói sau một khoảng thời gian nhập trước.
+		Nói (text): đối tượng hiển thị đoạn văn bản
+		Nghĩ (text) trong (n) giây
+		Nghĩ (text)
+		#comment: bản chất 2 cái trên không khác gì cái "Nói", kiểu nó chỉ biểu thị nghĩ thôi mà 
+		chuyển sang trang phục (dropdown)(....tên trang phục hiển thị.....): chuyển trang phục của đối tượng hiện tại thành trang phục chỉ định
+		Trang phục kế tiếp: đổi trang phục của đối tượng thành trang phục tiếp theo trong danh sách
+		Đổi kích thước một lượng (n): Biến đổi kích thước đối tượng theo số nhập từ bàn phím
+		#comment: scale theo hệ số n
+		Đặt kích thước thành (n)%: zoom đối tượng theo tỉ lệ %
+		Thay đổi hiệu ứng (dropdown) một lượng (n): thay đổi hiệu ứng hiển thị của đối tượng hệ số n
+		Đặt hiệu ứng (dropdown) bằng (n): đặt hiệu ứng chỉ định điều chỉnh theo hệ số n
+		Bỏ các hiệu ứng đồ họa: loại bỏ các hiệu ứng đồ họa đang áp dụng trên đối tượng
+		Hiện: hiển thị hiệu ứng
+		Ẩn: bỏ hiện thị
+		Đi tới lớp phía (dropdown)+ trên cùng: trỏ trực tiếp vào lớp Thay hiệu ứng trên cùng
+					  + sau	     : trỏ trực tiếp vào lớp hiệu ứng dưới cùng
+		đi (dropdown) +tới (n) lớp : tiến tới một số lớp hiệu ứng
+			      +lùi	   : quay lại một số lớp hiệu ứng
+
+		#comment: mục dưới đây được dùng như một biến, ngoài ra còn có checkbox ở bên để hiện  của vật thể
+		+ trang phục (dropdown) (số thứ tự các trang phục trên vật thể)
+		+ phông nền (dropdown) (số thứ tự các phông nền)
+		+ kích thước
+
+Âm thanh:
+Phát âm thanh (dropdown)(danh sách các tệp âm thanh được gắn trong vật thể) đến hết: Cho vật thể phát âm thanh được chọn đến khi hết tệp âm thanh đó
+Bắt đầu âm thanh (dropdown): bắt đầu phát tệp âm thanh
+Ngừng mọi âm thanh: dừng phát tất cả các tệp âm thanh
+Thay đổi hiệu ứng (dropdown) + cao độ	     một lượng (n): thay đội hiệu ứng âm thanh theo biến số n
+			     + pan trái/phải 		  : điều trỉnh độ to nhỏ trong âm lượng của 2 bên loa
+Đặt hiệu ứng (dropdown) + cao độ bằng (n): đặt độ to của hiệu ứng cao độ bằng một lượng n
+			+ pan trái/phải: đặt tộ to của hiệu ứng âm thanh trái phải bằng một lượng n
+Xóa hiệu ứng âm thanh: xóa tất cả hiệu ứng âm thanh hiện tại.
+Thay đổi âm lượng một lượng: thay đổi thông số âm lượng bằng với giá trị n nhập từ bàn phím.
+Đặt âm lượng (n)% : đặt âm lượng tổng thể ở mức n%
+*biến: âm lượng
+
+
+Sự kiện: 
+#comment: các khối dưới đây đều là khối dạng mở đầu,thường được đặt ở đầu khối chương trình.
