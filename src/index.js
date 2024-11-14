@@ -43,9 +43,19 @@ const compileCode = () =>
     }
 }
 
+
+// Function to stop code execution
+const stopCode = () => {
+  codeDiv.innerText = ''; // Clear the displayed code
+  alert("Code execution stopped.");
+  // Add additional logic here to stop code execution if needed
+};
+
 // Attach event listener to the "Run Code" button
 const runButton = document.getElementById('runButton');
+const stopButton = document.getElementById('stopButton');
 runButton.addEventListener('click', compileCode);
+stopButton.addEventListener('click', stopCode);
 
 // Load the initial state from storage and run the code.
 load(ws);
