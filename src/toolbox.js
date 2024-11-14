@@ -63,11 +63,67 @@ export const toolbox = {
             'contents': [
                 {
                     'kind': 'block',
-                    'type': 'move'
+                    'type': 'move_forward'
                 },
                 {
                     'kind': 'block',
-                    'type': 'up'
+                    'type': 'move_backward'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'turn_left'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'turn_right'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'move_forward_infi'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'move_backward_infi'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'turn_left_infi'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'turn_right_infi'
+                }
+            ]
+        },
+        {
+            'kind': 'category',
+            'name': 'Chuyển động linh kiện',
+            'contents': [
+                {
+                    'kind': 'block',
+                    'type': 'turn_up'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'turn_down'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'rotate'
+                }
+            ]
+        },
+        {
+            'kind': 'category',
+            'name': 'Giá trị',
+            'contents': [
+                {
+                    'kind': 'block',
+                    'type': 'step'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'degree'
                 }
             ]
         }
