@@ -292,8 +292,8 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([{
     {
       "type": "field_number",
       "name": "NUM",
-      "value": "10",
-      "min": "10",
+      "value": "0",
+      "min": "0",
       "max": "180",
       "precision":"1"
     },
