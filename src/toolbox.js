@@ -70,6 +70,76 @@ export const toolbox = {
                     'type': 'up'
                 }
             ]
-        }
+        },
+        {
+            'kind': 'category',
+            'name': 'Hiển thị',
+            'contents': [
+                {
+                    'kind': 'block',
+                    'type': 'speak'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'think'
+                }
+            ]
+        },
+        {
+            'kind': 'category',
+            'name': 'Điều khiển',
+            'contents': [
+                {
+                    'kind': 'block',
+                    'type': 'wait'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'repeat'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'forever'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'if'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'if_else'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'wait_until'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'repeat_until'
+                },
+                {
+                    'kind': 'block',
+                    'type': 'stop'
+                },
+            ]
+        },
+        {
+            'kind': 'category',
+            'name': 'Cảm biến',
+            'contents': [
+                {
+                    'kind': 'block',
+                    'type': 'key_pressed'
+                },
+                //{
+                //    'kind': 'block',
+                //    'type': 'ultrasonic_sensor_status'
+                //},
+                //{
+                //    'kind': 'block',
+                //    'type': 'ultrasonic_sensor2_status'
+                //}
+            ]
+        },
     ]
 };
