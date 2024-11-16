@@ -94,6 +94,93 @@ jsonGenerator.forBlock['object'] = function(block, generator) {
   const code = '{\n' + statementMembers + '\n}';
   return [code, Order.ATOMIC];
 };
+//new
+
+jsonGenerator.forBlock['speak'] = function(block) {
+  const textValue = jsonGenerator.valueToCode(block, 'TEXT', Order.ATOMIC) || '""';
+  const code = `console.log(${textValue});\n`; // Replace with alert, speech synthesis, etc.
+  return code;
+};
+jsonGenerator.forBlock['think'] = function(block) {
+  const textValue = jsonGenerator.valueToCode(block, 'TEXT', Order.ATOMIC) || '""';
+  const code = `console.debug(${textValue});\n`; // Replace with other options if needed
+  return code;
+};
+
+jsonGenerator.forBlock['wait'] = function(block) {
+  const time = block.getFieldValue('TIME');  // Get the time from the block field
+  const code = `Đợi(${time} giây);`;  // The generated code
+  return [code, Order.ATOMIC];
+};
+jsonGenerator.forBlock['repeat'] = function(block, generator) {
+  const times = block.getFieldValue('TIMES');  // Get the number of repetitions from the block
+  const statementCode = generator.statementToCode(block, 'DO');  // Get the code to repeat
+  
+  // Create a for-loop that repeats the code 'times' number of times
+  const code = `for (let i = 0; i < ${times}; i++) {\n${statementCode}\n}\n`;
+  return code;
+};
+jsonGenerator.forBlock['forever'] = function(block, generator) {
+  const statementCode = generator.statementToCode(block, 'DO');  // Get the code inside the block
+  
+  // Create a while loop that runs indefinitely
+  const code = `while (true) {\n${statementCode}\n}\n`;
+  return code;
+};
+jsonGenerator.forBlock['if'] = function(block, generator) {
+  const condition = generator.valueToCode(block, 'CONDITION', Order.ATOMIC);  // Get the condition for the 'if' statement
+  const statementCode = generator.statementToCode(block, 'DO');  // Get the actions to perform if the condition is true
+  
+  // Generate the if statement with the condition and actions inside
+  const code = `if (${condition}) {\n${statementCode}\n}\n`;
+  return code;
+};
+jsonGenerator.forBlock['if_else'] = function(block, generator) {
+  const condition = generator.valueToCode(block, 'CONDITION', Order.ATOMIC);  // Get the condition for the 'if' statement
+  const statementCode = generator.statementToCode(block, 'DO');  // Get the actions to perform if the condition is true
+  const elseStatementCode = generator.statementToCode(block, 'ELSE');  // Get the actions to perform if the condition is false
+  
+  // Generate the if-else statement with the condition and actions inside
+  const code = `if (${condition}) {\n${statementCode}\n} else {\n${elseStatementCode}\n}\n`;
+  return code;
+};
+jsonGenerator.forBlock['wait_until'] = function(block, generator) {
+  const condition = generator.valueToCode(block, 'CONDITION', Order.ATOMIC);  // Get the condition for waiting
+
+  // Generate the code to repeatedly check the condition
+  const code = `while (!${condition}) {\n  // Đợi\n}\n`;
+  return code;
+};
+jsonGenerator.forBlock['repeat_until'] = function(block, generator) {
+  const condition = generator.valueToCode(block, 'CONDITION', Order.ATOMIC);  // Get the condition for the loop
+  const statementCode = generator.statementToCode(block, 'DO');  // Get the actions to perform while looping
+
+  // Generate the code to repeatedly check the condition and perform the action
+  const code = `do {\n${statementCode}} while (!${condition});\n`;
+  return code;
+};
+jsonGenerator.forBlock['stop'] = function(block) {
+  // The code for stopping the program or exiting a loop is a break statement
+  const code = 'break;\n';  // This is the JavaScript equivalent of stopping execution in a loop
+  return code;
+};
+jsonGenerator.forBlock['key_pressed'] = function(block) {
+  const key = block.getFieldValue('KEY');  // Get the selected key from the dropdown
+  const code = `document.addEventListener('keydown', (event) => event.key === '${key}')`;
+  return [code, Order.ATOMIC];
+};
+jsonGenerator.forBlock['ultrasonic_sensor_status'] = function(block) {
+  // Replace `getUltrasonicSensor1Distance` with the actual function or API call
+  // that retrieves the distance measurement from Ultrasonic Sensor 1.
+  const code = 'getUltrasonicSensor1Distance()';
+  return [code, Order.ATOMIC];
+};
+jsonGenerator.forBlock['ultrasonic_sensor2_status'] = function(block) {
+  // Replace `getUltrasonicSensor2Distance` with the actual function that reads
+  // the distance from Ultrasonic Sensor 2
+  const code = 'getUltrasonicSensor2Distance()';
+  return [code, Order.ATOMIC];
+};
 
 jsonGenerator.scrub_ = function(block, code, thisOnly) {
   const nextBlock =
