@@ -7,7 +7,7 @@ const Order = {
 };
 
 jsonGenerator.forBlock['logic_null'] = function(block) {
-  return ['ĐỊT MẸ MÀY', Order.ATOMIC];
+  return ['NULL', Order.ATOMIC];
 };
 
 jsonGenerator.forBlock['text'] = function(block) {
@@ -49,7 +49,7 @@ jsonGenerator.forBlock['up'] = function(block, generator) {
         block, 'MEMBER_VALUE', Order.ATOMIC);
 
   // Generate code in the form of print("value")
-  const code = `Lên(${value});\n`;  // Adding semicolon and newline for separation
+  const code = `await delay(${value});\n`;  // Adding semicolon and newline for separation
   return code;
 };
 
@@ -95,11 +95,188 @@ jsonGenerator.forBlock['object'] = function(block, generator) {
   return [code, Order.ATOMIC];
 };
 
+//NGOQUOCVIET
+
+
+//Thao tác di chuyển
+
+jsonGenerator.forBlock['move_forward'] = function (block, generator) {
+  const value = generator.valueToCode(
+    block, 'MEMBER_VALUE', Order.ATOMIC);
+  const code = `Tiến lên (${value}) bước!;\n`;
+  return code;
+};
+
+jsonGenerator.forBlock['move_backward'] = function (block, generator) {
+  const value = generator.valueToCode(
+    block, 'MEMBER_VALUE', Order.ATOMIC);
+  const code = `Đi lùi (${value}) bước!;\n`;
+  return code;
+};
+
+jsonGenerator.forBlock['turn_left'] = function (block, generator) {
+  const value = generator.valueToCode(
+    block, 'MEMBER_VALUE', Order.ATOMIC);
+  const code = `Quay trái (${value}) bước!;\n`;
+  return code;
+};
+
+jsonGenerator.forBlock['turn_right'] = function (block, generator) {
+  const value = generator.valueToCode(
+    block, 'MEMBER_VALUE', Order.ATOMIC);
+  const code = `Quay phải (${value}) bước!;\n`;
+  return code;
+};
+
+//Thao tác di chuyển vĩnh cửu
+jsonGenerator.forBlock['move_forward_infi'] = function (block, generator) {
+  const code = `while (true) {\n  Tiến lên!;\n}\n`;
+  return code;
+};
+
+jsonGenerator.forBlock['move_backward_infi'] = function (block, generator) {
+  const code = `while (true) {\n  Đi lùi!;\n}\n`;
+  return code;
+};
+
+jsonGenerator.forBlock['turn_left_infi'] = function (block, generator) {
+  const code = `while (true) {\n  Quay trái!;\n}\n`;
+  return code;
+};
+
+jsonGenerator.forBlock['turn_right_infi'] = function (block, generator) {
+  const code = `while (true) {\n  Quay phải!;\n}\n`;
+  return code;
+};
+
+//Thao tác linh kiện
+jsonGenerator.forBlock['turn_up'] = function (block, generator) {
+  const code = `Quay lên (value?);\n`;
+  return code;
+};
+
+jsonGenerator.forBlock['turn_down'] = function (block, generator) {
+  const code = `Quay xuống (value?);\n`;
+  return code;
+};
+
+
+jsonGenerator.forBlock['rotate'] = function (block, generator) {
+  const value = generator.valueToCode(
+    block, 'MEMBER_VALUE', Order.ATOMIC);
+  const code = `Quay (${value}) độ;\n`;
+  return code;
+};
+
+//Các loại giá trị
+jsonGenerator.forBlock['step'] = function (block) {
+  const stepValue = block.getFieldValue('NUM');
+  const code = String(stepValue);
+  return [code, Order.ATOMIC];
+};
+
+jsonGenerator.forBlock['degree'] = function (block) {
+  const stepValue = block.getFieldValue('NUM');
+  const code = String(stepValue);
+  return [code, Order.ATOMIC];
+};
+
+//NGOVUVIETCODE
+//new
+
+jsonGenerator.forBlock['speak'] = function(block) {
+  const textValue = jsonGenerator.valueToCode(block, 'TEXT_TO_SPEAK', Order.ATOMIC) || '""';
+  const code = `speak(${textValue});\n`; // Replace with alert, speech synthesis, etc.
+  return code;
+};
+
+jsonGenerator.forBlock['think'] = function(block) {
+  const textValue = jsonGenerator.valueToCode(block, 'TEXT_TO_THINK', Order.ATOMIC) || '""';
+  const code = `alert(${textValue});\n`; // Replace with other options if needed
+  return code;
+};
+
+jsonGenerator.forBlock['repeat'] = function(block, generator) {
+  const times = block.getFieldValue('MEMBER_VALUE');  // Get the number of repetitions from the block
+    const value = generator.valueToCode(
+        block, 'MEMBER_VALUE', Order.ATOMIC);
+  const statementCode = generator.statementToCode(block, 'DO');  // Get the code to repeat
+
+  // Create a for-loop that repeats the code 'times' number of times
+  const code = `for (let i = 0; i < ${value}; i++) {\n${statementCode}\n}\n`;
+  return code;
+};
+jsonGenerator.forBlock['forever'] = function(block, generator) {
+  const statementCode = generator.statementToCode(block, 'DO');  // Get the code inside the block
+
+  // Create a while loop that runs indefinitely
+  const code = `while (true) {\n${statementCode}\n}\n`;
+  return code;
+};
+jsonGenerator.forBlock['if'] = function(block, generator) {
+  const condition = generator.valueToCode(block, 'CONDITION', Order.ATOMIC);  // Get the condition for the 'if' statement
+  const statementCode = generator.statementToCode(block, 'DO');  // Get the actions to perform if the condition is true
+
+  // Generate the if statement with the condition and actions inside
+  const code = `if (${condition}) {\n${statementCode}\n}\n`;
+  return code;
+};
+jsonGenerator.forBlock['if_else'] = function(block, generator) {
+  const condition = generator.valueToCode(block, 'CONDITION', Order.ATOMIC);  // Get the condition for the 'if' statement
+  const statementCode = generator.statementToCode(block, 'DO');  // Get the actions to perform if the condition is true
+  const elseStatementCode = generator.statementToCode(block, 'DO_ELSE');  // Get the actions to perform if the condition is false
+
+  // Generate the if-else statement with the condition and actions inside
+  const code = `if (${condition}) {\n${statementCode}\n} else {\n${elseStatementCode}\n}\n`;
+  return code;
+};
+jsonGenerator.forBlock['wait_until'] = function(block, generator) {
+  const condition = generator.valueToCode(block, 'CONDITION', Order.ATOMIC);  // Get the condition for waiting
+
+  // Generate the code to repeatedly check the condition
+  const code = `while (!${condition}) {\n  // Đợi\n}\n`;
+  return code;
+};
+jsonGenerator.forBlock['repeat_until'] = function(block, generator) {
+  const condition = generator.valueToCode(block, 'CONDITION', Order.ATOMIC);  // Get the condition for the loop
+  const statementCode = generator.statementToCode(block, 'DO');  // Get the actions to perform while looping
+
+  // Generate the code to repeatedly check the condition and perform the action
+  const code = `do {\n${statementCode}} while (!${condition});\n`;
+  return code;
+};
+jsonGenerator.forBlock['stop'] = function(block) {
+  // The code for stopping the program or exiting a loop is a break statement
+  const code = 'break;\n';  // This is the JavaScript equivalent of stopping execution in a loop
+  return code;
+};
+
+jsonGenerator.forBlock['key_pressed'] = function(block) {
+  const key = block.getFieldValue('KEY');
+
+  const code = `keypress_bd("${key}")\n`;
+  return [code, Order.ATOMIC];
+};
+
+jsonGenerator.forBlock['ultrasonic_sensor_status'] = function(block) {
+  // Replace `getUltrasonicSensor1Distance` with the actual function or API call
+  // that retrieves the distance measurement from Ultrasonic Sensor 1.
+  const code = 'getUltrasonicSensor1Distance()';
+  return [code, Order.ATOMIC];
+};
+jsonGenerator.forBlock['ultrasonic_sensor2_status'] = function(block) {
+  // Replace `getUltrasonicSensor2Distance` with the actual function that reads
+  // the distance from Ultrasonic Sensor 2
+  const code = 'getUltrasonicSensor2Distance()';
+  return [code, Order.ATOMIC];
+};
+//End here
+
 jsonGenerator.scrub_ = function(block, code, thisOnly) {
   const nextBlock =
       block.nextConnection && block.nextConnection.targetBlock();
   if (nextBlock && !thisOnly) {
-    return code + ',\n' + jsonGenerator.blockToCode(nextBlock);
+    return code + '\n' + jsonGenerator.blockToCode(nextBlock);
   }
   return code;
 };
