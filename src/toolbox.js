@@ -259,6 +259,22 @@ export const toolbox = {
                            'type': 'math_compare'
                        }
                    ]
-               }
+               },
+        {
+          "kind": "category",
+          "name": "Dynamic Variables",
+          "custom": "VARIABLE",  // Enables dynamic variable creation
+          "colour": 330,
+          "contents": [
+            {
+              "kind": "block",
+              "type": "variables_set"  // Use the custom dynamic_var_set block type
+            },
+            {
+              "kind": "block",
+              "type": "variables_get"  // Use the custom dynamic_var_get block type
+            }
+          ]
+        }
     ]
 };

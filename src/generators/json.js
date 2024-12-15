@@ -1,6 +1,8 @@
 import * as Blockly from 'blockly';
 
+
 export const jsonGenerator = new Blockly.Generator('JSON');
+
 
 const Order = {
   ATOMIC: 0,
@@ -270,6 +272,25 @@ jsonGenerator.forBlock['ultrasonic_sensor2_status'] = function(block) {
   const code = 'getUltrasonicSensor2Distance()';
   return [code, Order.ATOMIC];
 };
+//ANH LUU VAR
+
+
+// JSON-based generator for 'variables_set' block
+jsonGenerator.forBlock['variables_set'] = function(block) {
+  const variable = block.getFieldValue('VAR');  // Retrieve the user-defined variable name
+  const value = jsonGenerator.valueToCode(block, 'VALUE', 0);  // Get the value connected to the 'VALUE' input
+    return `${variable} = ${value};\n`;  // Assign without 'let'
+
+};
+
+// JSON-based generator for 'variables_get' block
+jsonGenerator.forBlock['variables_get'] = function(block) {
+  const variable = block.getFieldValue('VAR');  // Retrieve the user-defined variable name
+  const code = `${variable}`;  // Return the variable name
+  return [code, 0];  // Return the variable with atomic order (no extra operations)
+};
+
+
 //End here
 
 jsonGenerator.scrub_ = function(block, code, thisOnly) {

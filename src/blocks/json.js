@@ -651,6 +651,48 @@ export const blocks = Blockly.common.createBlockDefinitionsFromJsonArray([
         ],
         "output": "Boolean",
         "colour": 230
-      }
+      },
+    //VAR
+   
+    
+    {
+      "type": "variables_set",
+      "message0": "set %1 to %2",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "VAR",
+          "text": "item"  // Default name, but user can change it
+        },
+        {
+          "type": "input_value",
+          "name": "VALUE"
+        }
+      ],
+      "previousStatement": null,
+      "nextStatement": null,
+      "colour": 330,
+      "tooltip": "Assign a value to a dynamically created variable.",
+      "helpUrl": ""
+    },
+    {
+      "type": "variables_get",
+      "message0": "get %1",
+      "args0": [
+        {
+          "type": "field_input",
+          "name": "VAR",
+          "text": "item"  // Default name, but user can change it
+        }
+      ],
+      "output": null,
+      "colour": 330,
+      "tooltip": "Retrieve the value of a dynamically created variable.",
+      "helpUrl": ""
+    }
+
+
+
+
 
 ]);

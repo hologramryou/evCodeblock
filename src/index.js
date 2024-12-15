@@ -20,6 +20,40 @@ const codeDiv = document.getElementById('generatedCode').firstChild;
 const blocklyDiv = document.getElementById('blocklyDiv');
 const ws = Blockly.inject(blocklyDiv, {toolbox});
 
+
+//ANHLUU MODIFIED FOR CODE VAR
+// Function to process generated code and ensure only the first instance of each variable is declared with 'let'
+function processCodeWithLet(code) {
+  let lines = code.split('\n');  // Split the code into individual lines
+  let declaredVariables = {};  // Track declared variables
+
+  // Iterate through each line of code
+  for (let i = 0; i < lines.length; i++) {
+    let line = lines[i].trim();
+
+    // Check if the line contains an assignment (contains '=')
+    if (line.includes('=')) {
+      let parts = line.split('=');  // Split at the equal sign to extract variable name
+      let variableName = parts[0].trim();  // Extract the variable name (before '=')
+
+      console.log(`Processing line: "${line}"`);
+      console.log(`Extracted variable: "${variableName}"`);
+
+      // If the variable has not been declared yet, declare it with 'let'
+      if (!declaredVariables[variableName]) {
+        lines[i] = `let ${variableName} = ${parts[1].trim()};`;  // Modify to use 'let' with the variable name preserved
+          //eval(lines[i]);
+        declaredVariables[variableName] = true;  // Mark the variable as declared
+      } else {
+        lines[i] = `${variableName} = ${parts[1].trim()};`;  // Modify to use '=' for subsequent assignments
+      }
+    }
+  }
+
+  return lines.join('\n');  // Join the modified lines back together
+}
+
+
 //NEW SHIT
 
 
@@ -119,6 +153,7 @@ async function example(coding) {
 // This function displays the generated code from the workspace and runs it.
 const runCode = () => {
   const code = jsonGenerator.workspaceToCode(ws);
+code = processCodeWithLet(code);  // Process the code to add 'let' where necessary
   codeDiv.innerText = code;
 
 };
@@ -143,14 +178,15 @@ const runCode = () => {
 //Done but not too well
 async function compileCode() {
   const code = jsonGenerator.workspaceToCode(ws);
-  codeDiv.innerText = code;
+   var codedy = processCodeWithLet(code);  // Process the code to add 'let' where necessary
+  codeDiv.innerText = codedy;
 
   try {
     // Wrap the code in an async function before evaluating
     const result = await (async () => {
       return await eval(`
         (async () => {
-          ${code}
+          ${codedy}
         })()
       `);
     })();
